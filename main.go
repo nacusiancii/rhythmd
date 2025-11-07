@@ -19,7 +19,7 @@ const (
 type State struct {
 	Mode      string
 	StartTime time.Time
-	Duration  int
+	Duration  time.Duration
 }
 
 type Service struct {
@@ -38,7 +38,7 @@ func (s *Service) startCycle(mode string) {
 	s.state = State{
 		Mode:      mode,
 		StartTime: time.Now(),
-		Duration:  int(duration.Seconds()),
+		Duration:  duration,
 	}
 
 	log.Printf("Starting %s cycle (%v)", mode, duration)
